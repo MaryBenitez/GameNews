@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/fondo"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".MainActivities.MainActivity">
 
     <ImageView
+        android:id="@+id/foto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/gamesnews"/>
 
     <TextView
+        android:id="@+id/txtinicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="REGISTRO o INICIO DE SESIÓN"
+        android:text="INICIO DE SESIÓN"
         android:textAlignment="center"
         android:textSize="20dp"
         android:textColor="@color/white"
@@ -25,6 +29,7 @@
         android:layout_height="30dp"/>
 
     <EditText
+        android:id="@+id/usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
@@ -33,6 +38,7 @@
         android:textColorHint="@color/white"/>
 
     <EditText
+        android:id="@+id/contraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
@@ -40,34 +46,14 @@
         android:layout_marginHorizontal="30dp"
         android:textColorHint="@color/white"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btniniciar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registrar"
-            android:background="@color/skyblue"
-            android:layout_gravity="center"
-            android:textColor="@color/black" />
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="match_parent"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Iniciar"
-            android:background="@color/skyblue"
-            android:layout_gravity="center"
-            android:textColor="@color/black"/>
-
-
-    </LinearLayout>
+        android:text="Entrar"
+        android:background="@color/skyblue"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>
