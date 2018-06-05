@@ -15,11 +15,15 @@ public interface UserDao {
     @Query("SELECT * FROM User")
     List<User> getAll();
 
-    @Query("SELECT * FROM user WHERE user_id IN (:userIds)")
+    @Query("SELECT * FROM User WHERE user_id IN (:userIds)")
     List<User> loadAllByIds(int[] userIds);
 
-    @Query("SELECT * FROM user WHERE user LIKE :username AND "
-            + "pass LIKE :password LIMIT 1")
+    @Query("SELECT * FROM User WHERE fav IN (:favorite)")
+    List<User> loadAllByFav(boolean[] favorite);
+
+    @Query("SELECT * FROM User WHERE user LIKE :username AND "
+            + "pass LIKE :password LIMIT 8")
+
 
     User findByName(String username, String password);
 

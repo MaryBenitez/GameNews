@@ -16,11 +16,15 @@ public class User {
     @ColumnInfo(name = "pass")
     private String password;
 
+    @ColumnInfo(name = "fav")
+    private boolean favorite;
+
     //constructor
-    public User(int user_id, String username, String password) {
+    public User(int user_id, String username, String password, Boolean favorite) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
+        this.favorite = favorite;
     }
 
     //setters and getters
@@ -45,4 +49,10 @@ public class User {
         this.password = password;
     }
 
+    public boolean isFavorite() {
+        return favorite;
+    }
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
 }
