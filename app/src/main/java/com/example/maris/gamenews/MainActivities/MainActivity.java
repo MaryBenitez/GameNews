@@ -3,6 +3,7 @@ package com.example.maris.gamenews.MainActivities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
                         startActivity(intent);
                     } catch (Exception ex) {
-                        content.setText(" url exeption! " );
+                        Toast.makeText(getApplicationContext(),"ACCESO DENEGADO",Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             text = stringBuilder.toString();
+            Log.d("mensaje",text);
 
         }
 
