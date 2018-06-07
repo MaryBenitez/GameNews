@@ -11,6 +11,6 @@ public interface APIServiceGameNews {
 
     @POST("/login")
     @FormUrlEncoded
-    Call<POST> savePost(@Field("username") String username, @Field("password") long password);
+    Call<POST> savePost(@Field("username") String username, @Field("password") String password);
 
 }
