@@ -1,6 +1,7 @@
 package com.example.maris.gamenews.MainActivities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -10,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.maris.gamenews.MainActivities.Data.Model.POST;
+import com.example.maris.gamenews.MainActivities.Data.Model.LoginPOST;
 import com.example.maris.gamenews.MainActivities.Data.Remoto.APIServiceGameNews;
 import com.example.maris.gamenews.MainActivities.Data.Remoto.APIUtilsGameNews;
 import com.example.maris.gamenews.R;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
                         sendPost(username, password);
+                        Intent intent = new Intent(getApplicationContext(),MainActivity2.class);
+                        startActivity(intent);
                     }
 
                 } else {
@@ -63,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendPost(String user, String pass) {
-        APIService.savePost(user, pass).enqueue(new Callback<POST>() {
+        APIService.savePost(user, pass).enqueue(new Callback<LoginPOST>() {
             @Override
-            public void onResponse(Call<POST> call, Response<POST> response) {
+            public void onResponse(Call<LoginPOST> call, Response<LoginPOST> response) {
 
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
@@ -74,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<POST> call, Throwable t) {
+            public void onFailure(Call<LoginPOST> call, Throwable t) {
                 Log.e("MENSAJE", "Unable to submit post to API.");
             }
         });
     }
 
     public void showResponse(String response) {
-        Log.d("TAG",response);
+        Log.d("TOCKEEEEEN",response);
     }
 
 }

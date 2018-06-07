@@ -3,7 +3,7 @@ package com.example.maris.gamenews.MainActivities.Data.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class POST {
+public class LoginPOST {
 
     @SerializedName("token")
     @Expose
@@ -19,7 +19,7 @@ public class POST {
 
     @Override
     public String toString() {
-        return "POST{" +
+        return "LoginPOST{" +
                 "token='" + token + '\'' +
                 '}';
     }

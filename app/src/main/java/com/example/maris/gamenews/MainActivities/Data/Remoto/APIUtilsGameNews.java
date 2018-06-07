@@ -7,7 +7,7 @@ public class APIUtilsGameNews {
     private APIUtilsGameNews() {}
 
     //URL de API
-    public static final String BASE_URL = "http://gamenewsuca.herokuapp.com/login/";
+    public static final String BASE_URL = "http://gamenewsuca.herokuapp.com/";
 
     public static APIServiceGameNews getAPIService() {
 
