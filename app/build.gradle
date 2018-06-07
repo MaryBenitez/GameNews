@@ -35,4 +35,11 @@ dependencies {
     //Componentes de Lifecycle
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+
+    //JSON Parsing
+    implementation 'com.google.code.gson:gson:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

@@ -1,5 +1,6 @@
 package com.example.maris.gamenews.Interface;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -12,8 +13,14 @@ import java.util.List;
 @Dao
 public interface UserDao {
 
+    @Insert
+    void insertAll(User user);
+
+    @Delete
+    void delete(User user);
+
     @Query("SELECT * FROM User")
-    List<User> getAll();
+    LiveData<List<User>> getAll();
 
     @Query("SELECT * FROM User WHERE user_id IN (:userIds)")
     List<User> loadAllByIds(int[] userIds);
@@ -26,11 +33,5 @@ public interface UserDao {
 
 
     User findByName(String username, String password);
-
-    @Insert
-    void insertAll(User... users);
-
-    @Delete
-    void delete(User user);
 
 }
