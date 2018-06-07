@@ -1,9 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/fondo"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        app:cardUseCompatPadding="true"
+        android:elevation="4dp"
+        app:cardCornerRadius="4dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/gray">
+
+            <ImageView
+                android:id="@+id/lol"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/lol"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/LL1"
+                android:layout_below="@id/foto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginHorizontal="30dp"
+                android:background="@color/gray"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/news"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:text="NEWS LOL"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="4dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_favorito"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="35dp"
+                    android:scaleType="fitXY"
+                    android:background="@color/gray"
+                    android:src="@drawable/fav" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/fondo"
+        android:layout_marginTop="-15dp">
+
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="180dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view2"
+            app:cardUseCompatPadding="true"
+            android:elevation="4dp"
+            app:cardCornerRadius="4dp"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/gray">
+
+                <ImageView
+                    android:id="@+id/csgo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@drawable/csgo"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="-15dp"/>
+
+                <LinearLayout
+                    android:id="@+id/LL2"
+                    android:layout_below="@id/foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="15dp"
+                    android:background="@color/gray"
+                    android:layout_marginTop="-15dp">
+
+                    <TextView
+                        android:id="@+id/news2"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:text="NEWS CSGO"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:gravity="center_vertical"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="4dp" />
+
+                    <ImageButton
+                        android:id="@+id/btn_favorito2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"
+                        android:background="@color/gray"
+                        android:src="@drawable/fav" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="180dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view3"
+            app:cardUseCompatPadding="true"
+            android:elevation="4dp"
+            app:cardCornerRadius="4dp"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/gray">
+
+                <ImageView
+                    android:id="@+id/dota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@drawable/dota"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="-18dp"/>
+
+                <LinearLayout
+                    android:id="@+id/LL3"
+                    android:layout_below="@id/foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="15dp"
+                    android:background="@color/gray"
+                    android:layout_marginTop="-10dp">
+
+                    <TextView
+                        android:id="@+id/news3"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:text="NEWS DOTA"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:gravity="center_vertical" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="4dp" />
+
+                    <ImageButton
+                        android:id="@+id/btn_favorito3"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"
+                        android:background="@color/gray"
+                        android:src="@drawable/fav" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
 </LinearLayout>
