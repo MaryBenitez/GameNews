@@ -33,7 +33,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Adapte
 
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.cardview_news,parent,false);
+        view = inflater.inflate(R.layout.news,parent,false);
 
         return new AdapterViewHolder(view);
 

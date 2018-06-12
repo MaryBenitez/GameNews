@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="185dp"
-    android:layout_height="136dp"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     app:cardUseCompatPadding="true"
@@ -23,8 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:src="@drawable/dota"
-            android:layout_gravity="center" />
+            android:src="@drawable/lol"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"/>
 
         <LinearLayout
             android:id="@+id/LL3"
@@ -44,19 +45,15 @@
                 android:text="NEWS DOTA"
                 android:textSize="15sp"
                 android:textColor="@color/white"
-                android:gravity="center_vertical" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="0.2"
-                android:layout_height="4dp" />
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"/>
 
             <ImageButton
                 android:id="@+id/btn_favoritocv"
                 android:layout_width="0dp"
-                android:layout_weight="0.6"
+                android:layout_weight="1"
                 android:layout_height="25dp"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:background="@color/gray"
                 android:src="@drawable/fav" />
 

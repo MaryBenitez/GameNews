@@ -18,11 +18,11 @@
             <item
                 android:id="@+id/nav_csgo"
                 android:title="Counter Strike"
-                android:icon="@drawable/csgo"/>
+                android:icon="@drawable/lol"/>
             <item
                 android:id="@+id/nav_dota"
                 android:title="Dota"
-                android:icon="@drawable/dota"/>
+                android:icon="@drawable/lol"/>
         </menu>
     </item>
 

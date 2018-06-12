@@ -67,7 +67,27 @@ public class MainActivity2 extends AppCompatActivity
 
             //llamando al recycler
 
-                rv.setLayoutManager(new GridLayoutManager(this,1));
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(this,6);
+                gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+
+                        switch (position % 3){
+
+                            case 0:
+                                return 6;
+                            case 1:
+                            case 2:
+                                return 3;
+
+                        }
+
+                        throw new IllegalStateException("Error");
+
+                    }
+                });
+
+                rv.setLayoutManager(gridLayoutManager);
                 adapter = new RecyclerAdapter(this,newsList);
                 rv.setAdapter(adapter);
 
