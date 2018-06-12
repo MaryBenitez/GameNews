@@ -4,8 +4,6 @@ package com.example.maris.gamenews.MainActivities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -13,14 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.maris.gamenews.Class.Adapter;
-import com.example.maris.gamenews.Class.User;
 import com.example.maris.gamenews.MainActivities.Data.Model.LoginPOST;
 import com.example.maris.gamenews.MainActivities.Data.Remoto.APIServiceGameNews;
 import com.example.maris.gamenews.MainActivities.Data.Remoto.APIUtilsGameNews;
 import com.example.maris.gamenews.R;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,11 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     private APIServiceGameNews APIService;
 
-    RecyclerView rv;
-    Adapter adapter;
-    ArrayList<User> news;
-    LinearLayoutManager lManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +36,6 @@ public class MainActivity extends AppCompatActivity {
         Inicializacion();
 
         APIService = APIUtilsGameNews.getAPIService();
-
-        rv=findViewById(R.id.recycler);
-
-        /*adapter = new Adapter(news);
-        rv.setAdapter(adapter);*/
 
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
                     if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
                         sendPost(username, password);
-                        Intent intent = new Intent(getApplicationContext(),MainActivity2.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
                         startActivity(intent);
                     }
-
-                } else {
+                }
+                else {
                     Toast.makeText(getApplicationContext(), "Complete los campos", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -100,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showResponse(String response) {
-        Log.d("TOCKEEEEEN",response);
+       Log.d("TOCKEN","Nulo?  "+(response==null));
     }
+
+
 
 }

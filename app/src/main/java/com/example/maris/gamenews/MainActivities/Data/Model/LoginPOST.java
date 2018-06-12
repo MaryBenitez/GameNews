@@ -17,6 +17,7 @@ public class LoginPOST {
         this.token = token;
     }
 
+    //Aqui se recibe el tocken de la API
     @Override
     public String toString() {
         return "LoginPOST{" +
