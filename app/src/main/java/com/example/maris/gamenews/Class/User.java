@@ -4,6 +4,9 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class User {
 
@@ -17,14 +20,14 @@ public class User {
     private String password;
 
     @ColumnInfo(name = "fav")
-    private boolean favorite;
+    private ArrayList<String> favorite = new ArrayList<>();
 
     //constructor
-    public User(int user_id, String username, String password, Boolean favorite) {
+    public User(int user_id, String username, String password, ArrayList<String> favorite) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
-        this.favorite = favorite;
+        this.favorite.addAll(favorite);
     }
 
     //setters and getters
@@ -49,10 +52,10 @@ public class User {
         this.password = password;
     }
 
-    public boolean isFavorite() {
+    public ArrayList<String> getFavorite() {
         return favorite;
     }
-    public void setFavorite(boolean favorite) {
+    public void setFavorite(ArrayList<String> favorite) {
         this.favorite = favorite;
     }
 }

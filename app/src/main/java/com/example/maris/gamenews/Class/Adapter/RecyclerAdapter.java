@@ -31,6 +31,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Adapte
     @Override
     public AdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        //Inflate para el layout de los cardview
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.news,parent,false);
@@ -43,7 +44,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Adapte
     public void onBindViewHolder(@NonNull AdapterViewHolder holder, int position) {
 
         holder.title_news.setText(data.get(position).getTitle());
-
 
     }
 

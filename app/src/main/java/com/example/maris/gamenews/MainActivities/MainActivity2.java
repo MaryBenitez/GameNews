@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.maris.gamenews.Class.Adapter.RecyclerAdapter;
-import com.example.maris.gamenews.Class.Cardview;
+import com.example.maris.gamenews.Class.Fragment.Cardview;
 
 import com.example.maris.gamenews.Class.News;
 import com.example.maris.gamenews.R;
@@ -56,7 +56,7 @@ public class MainActivity2 extends AppCompatActivity
 
             rv = findViewById(R.id.recycler);
 
-            //agregando quemados
+            //agregando quemados para observar si el diseño es correcto
 
                 newsList.add(new News(null,"NOTICIAS LOL",null));
                 newsList.add(new News(null,"NOTICIAS DOTA",null));
@@ -65,17 +65,20 @@ public class MainActivity2 extends AppCompatActivity
                 newsList.add(new News(null,"NOTICIAS DOTA",null));
                 newsList.add(new News(null,"NOTICIAS CSGO",null));
 
-            //llamando al recycler
-
+                //6 Espacios para las cardview
                 GridLayoutManager gridLayoutManager = new GridLayoutManager(this,6);
                 gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                     @Override
                     public int getSpanSize(int position) {
 
+                        //Switch para repartir los espacios
                         switch (position % 3){
 
+                            //El primer cardview tomará los 6 espacios
                             case 0:
                                 return 6;
+                            //Las siguientes 2 cardview tomarán 3 y 3 para completar los 6 espacios
+                            //de manera que quedarán juntas
                             case 1:
                             case 2:
                                 return 3;
@@ -87,6 +90,7 @@ public class MainActivity2 extends AppCompatActivity
                     }
                 });
 
+                //seteando recycler en adapter
                 rv.setLayoutManager(gridLayoutManager);
                 adapter = new RecyclerAdapter(this,newsList);
                 rv.setAdapter(adapter);

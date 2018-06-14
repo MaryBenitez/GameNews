@@ -1,10 +1,11 @@
-package com.example.maris.gamenews.Class;
+package com.example.maris.gamenews.RoomDataBase.Repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.example.maris.gamenews.Interface.UserDao;
+import com.example.maris.gamenews.Class.User;
+import com.example.maris.gamenews.RoomDataBase.Interface.UserDao;
 import com.example.maris.gamenews.RoomDataBase.AppDataBase;
 
 import java.util.List;

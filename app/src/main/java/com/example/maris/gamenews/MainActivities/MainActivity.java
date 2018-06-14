@@ -40,13 +40,17 @@ public class MainActivity extends AppCompatActivity {
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Validación por si el usuario deja algun campo vacio
                 if (!usern.getText().toString().equals("") && !passw.getText().toString().equals("")) {
 
                     String username = usern.getText().toString().trim();
                     String password = passw.getText().toString().trim();
 
+                    //condición donde indica si username y password no estan vacios
                     if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+                        //llamando metodo
                         sendPost(username, password);
+                        //Si el metodo se envia con exito, entra a la siguiente actividad
                         Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
                         startActivity(intent);
                     }
@@ -67,10 +71,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendPost(String user, String pass) {
         APIService.savePost(user, pass).enqueue(new Callback<LoginPOST>() {
+            //Metodo que espera como parametros un llamada a la clase LoginPOST y una respuesta de dicha clase
             @Override
             public void onResponse(Call<LoginPOST> call, Response<LoginPOST> response) {
-
                 if(response.isSuccessful()) {
+                    //Si la respuesta fue exitosa, se manda a llamar el metodo donde muestra el tccken
+                    //y asi poder obtener dicho tocken
                     showResponse(response.body().toString());
                     Log.i("MENSAJE", "post submitted to API." + response.body().toString());
                 }
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Metodo que muestra el tocken recibido, si no exite lo pone null
     public void showResponse(String response) {
        Log.d("TOCKEN","Nulo?  "+(response==null));
     }

@@ -1,4 +1,4 @@
-package com.example.maris.gamenews.Class;
+package com.example.maris.gamenews.Class.Fragment;
 
 import android.content.Context;
 import android.net.Uri;

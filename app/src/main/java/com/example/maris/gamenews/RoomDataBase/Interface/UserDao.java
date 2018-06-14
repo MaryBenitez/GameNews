@@ -1,4 +1,4 @@
-package com.example.maris.gamenews.Interface;
+package com.example.maris.gamenews.RoomDataBase.Interface;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 
 import com.example.maris.gamenews.Class.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -26,7 +27,7 @@ public interface UserDao {
     List<User> loadAllByIds(int[] userIds);
 
     @Query("SELECT * FROM User WHERE fav IN (:favorite)")
-    List<User> loadAllByFav(boolean[] favorite);
+    List<User> loadAllByFav(ArrayList<String> favorite);
 
     @Query("SELECT * FROM User WHERE user LIKE :username AND "
             + "pass LIKE :password LIMIT 8")
