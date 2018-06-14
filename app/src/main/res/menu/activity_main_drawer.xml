@@ -13,16 +13,13 @@
         <menu>
             <item
                 android:id="@+id/nav_lol"
-                android:title="League Of Legends"
-                android:icon="@drawable/lol"/>
+                android:title="League Of Legends" />
             <item
                 android:id="@+id/nav_csgo"
-                android:title="Counter Strike"
-                android:icon="@drawable/lol"/>
+                android:title="Counter Strike" />
             <item
                 android:id="@+id/nav_dota"
-                android:title="Dota"
-                android:icon="@drawable/lol"/>
+                android:title="Dota" />
         </menu>
     </item>
 
