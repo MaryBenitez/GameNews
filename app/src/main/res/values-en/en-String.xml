@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="inicio_de_sesin">Login</string>
+    <string name="usuari">Username</string>
+    <string name="contrasea">Password</string>
+    <string name="entra">Login</string>
+    <string name="newcs_go">News CSGO</string>
+    <string name="new_dota">News Dota</string>
+    <string name="new_lol">News LOL</string>
+
+</resources>

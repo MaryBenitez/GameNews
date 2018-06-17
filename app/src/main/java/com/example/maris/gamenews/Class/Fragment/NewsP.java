@@ -14,12 +14,12 @@ import com.example.maris.gamenews.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Cardview.OnFragmentInteractionListener} interface
+ * {@link NewsP.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Cardview#newInstance} factory method to
+ * Use the {@link NewsP#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Cardview extends Fragment {
+public class NewsP extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +31,7 @@ public class Cardview extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Cardview() {
+    public NewsP() {
         // Required empty public constructor
     }
 
@@ -44,8 +44,8 @@ public class Cardview extends Fragment {
      * @return A new instance of fragment CardviewFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Cardview newInstance(String param1, String param2) {
-        Cardview fragment = new Cardview();
+    public static NewsP newInstance(String param1, String param2) {
+        NewsP fragment = new NewsP();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

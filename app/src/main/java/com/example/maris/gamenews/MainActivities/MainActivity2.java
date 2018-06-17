@@ -15,12 +15,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.maris.gamenews.Class.Adapter.RecyclerAdapter;
-import com.example.maris.gamenews.Class.Fragment.Cardview;
+import com.example.maris.gamenews.Class.Fragment.NewsCsGo;
+import com.example.maris.gamenews.Class.Fragment.NewsDota;
+import com.example.maris.gamenews.Class.Fragment.NewsLOL;
+import com.example.maris.gamenews.Class.Fragment.NewsP;
 
+import com.example.maris.gamenews.Class.News;
 import com.example.maris.gamenews.MainActivities.Data.Model.Request;
 import com.example.maris.gamenews.MainActivities.Data.Remote.APIServiceGameNews;
 import com.example.maris.gamenews.MainActivities.Data.Remote.APIUtilsGameNews;
 import com.example.maris.gamenews.R;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,13 +35,16 @@ import retrofit2.Response;
 public class MainActivity2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
 
-        Cardview.OnFragmentInteractionListener{
+        NewsP.OnFragmentInteractionListener,
+        NewsLOL.OnFragmentInteractionListener,
+        NewsDota.OnFragmentInteractionListener,
+        NewsCsGo.OnFragmentInteractionListener{
 
-            //List<News> newsList;
             RecyclerView rv;
             RecyclerView.Adapter adapter;
             APIServiceGameNews service;
             Request[] news;
+            ArrayList <News> newsList;
 
             @Override
             protected void onCreate (Bundle savedInstanceState){
@@ -61,18 +70,24 @@ public class MainActivity2 extends AppCompatActivity
             ReadRequest(token);
 
 
-            //newsList = new ArrayList<>();
+            newsList = new ArrayList<>();
 
             rv = findViewById(R.id.recycler);
 
             //agregando quemados para observar si el diseño es correcto
 
-                /*newsList.add(new News(1,null,"NOTICIAS LOL",null,null));
-                newsList.add(new News(2,null,"NOTICIAS DOTA",null,null));
-                newsList.add(new News(3,null,"NOTICIAS CSGO",null,null));
-                newsList.add(new News(4,null,"NOTICIAS LOL",null,null));
-                newsList.add(new News(5,null,"NOTICIAS DOTA",null,null));
-                newsList.add(new News(6,null,"NOTICIAS CSGO",null,null));*/
+                newsList.add(new News(1,"NOTICIAS LOL",null,null,null));
+                newsList.add(new News(2,"NOTICIAS DOTA",null,null,null));
+                newsList.add(new News(3,"NOTICIAS CSGO",null,null,null));
+                newsList.add(new News(4,"NOTICIAS LOL",null,null,null));
+                newsList.add(new News(5,"NOTICIAS DOTA",null,null,null));
+                newsList.add(new News(6,"NOTICIAS CSGO",null,null,null));
+                newsList.add(new News(7,"NOTICIAS LOL",null,null,null));
+                newsList.add(new News(8,"NOTICIAS DOTA",null,null,null));
+                newsList.add(new News(9,"NOTICIAS CSGO",null,null,null));
+                newsList.add(new News(10,"NOTICIAS LOL",null,null,null));
+                newsList.add(new News(11,"NOTICIAS DOTA",null,null,null));
+                newsList.add(new News(12,"NOTICIAS CSGO",null,null,null));
 
                 //6 Espacios para las cardview
                 GridLayoutManager gridLayoutManager = new GridLayoutManager(this,6);
@@ -101,8 +116,8 @@ public class MainActivity2 extends AppCompatActivity
 
                //seteando recycler en adapter
                 rv.setLayoutManager(gridLayoutManager);
-                //adapter = new RecyclerAdapter(this,newsList);
-                //rv.setAdapter(adapter);
+                adapter = new RecyclerAdapter(this,newsList);
+                rv.setAdapter(adapter);
 
 
     }
@@ -152,14 +167,20 @@ public class MainActivity2 extends AppCompatActivity
             fragmentSeleccionado=true;
 
             if (id == R.id.nav_news) {
-                miFragment = new Cardview();
+                miFragment = new NewsP();
                 fragmentSeleccionado=true;
 
             } else if (id == R.id.nav_lol) {
+                miFragment = new NewsLOL();
+                fragmentSeleccionado=true;
 
             } else if (id == R.id.nav_csgo) {
+                miFragment = new NewsCsGo();
+                fragmentSeleccionado=true;
 
             } else if (id == R.id.nav_dota) {
+                miFragment = new NewsDota();
+                fragmentSeleccionado=true;
 
             }
 
@@ -188,8 +209,8 @@ public class MainActivity2 extends AppCompatActivity
                         if (response.isSuccessful()){
 
                             news=response.body();
-                            adapter=new RecyclerAdapter(news);
-                            rv.setAdapter(adapter);
+                            //adapter=new RecyclerAdapter(news);
+                            //rv.setAdapter(adapter);
                             Log.d("Tag","Successful request reading of API");
 
                         }

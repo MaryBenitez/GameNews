@@ -9,4 +9,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="inicio_de_sesi_n">INICIO DE SESIÓN</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="entrar">Entrar</string>
+    <string name="noticias_cs_go">Noticias Cs Go</string>
+    <string name="noticias_dota">Noticias Dota</string>
+    <string name="noticias_lol">Noticias LOL</string>
 </resources>

@@ -10,15 +10,25 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.maris.gamenews.Class.News;
 import com.example.maris.gamenews.MainActivities.Data.Model.Request;
 import com.example.maris.gamenews.R;
+
+import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.AdapterViewHolder> {
 
     private Context context;
+    private ArrayList<News> data;
     Request[] news;
 
     //constructor
+
+    public RecyclerAdapter(Context context, ArrayList<News> data){
+        this.context=context;
+        this.data=data;
+    }
+
     public RecyclerAdapter(Request[] news) {
         this.news = news;
     }
@@ -40,13 +50,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Adapte
     @Override
     public void onBindViewHolder(@NonNull AdapterViewHolder holder, int position) {
 
-        holder.title_news.setText(news[position].getTitle());
+        holder.title_news.setText(data.get(position).getTitle());
 
     }
 
     @Override
     public int getItemCount() {
-        return news.length;
+        return data.size();
     }
 
     public static class AdapterViewHolder extends RecyclerView.ViewHolder{

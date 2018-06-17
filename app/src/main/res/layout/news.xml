@@ -23,7 +23,8 @@
             android:layout_height="0dp"
             android:layout_weight="4"
             android:layout_gravity="center"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/dota"/>
 
         <LinearLayout
             android:id="@+id/LL3"
