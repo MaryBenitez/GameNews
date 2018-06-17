@@ -10,28 +10,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.maris.gamenews.Class.Adapter.RecyclerAdapter;
 import com.example.maris.gamenews.Class.Fragment.Cardview;
 
-import com.example.maris.gamenews.Class.News;
+import com.example.maris.gamenews.MainActivities.Data.Model.Request;
+import com.example.maris.gamenews.MainActivities.Data.Remote.APIServiceGameNews;
+import com.example.maris.gamenews.MainActivities.Data.Remote.APIUtilsGameNews;
 import com.example.maris.gamenews.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
 
         Cardview.OnFragmentInteractionListener{
 
-            List<News> newsList;
+            //List<News> newsList;
             RecyclerView rv;
             RecyclerView.Adapter adapter;
-
+            APIServiceGameNews service;
+            Request[] news;
 
             @Override
             protected void onCreate (Bundle savedInstanceState){
@@ -52,18 +56,23 @@ public class MainActivity2 extends AppCompatActivity
             navigationView.setNavigationItemSelectedListener(this);
 
 
-            newsList = new ArrayList<>();
+            String token = getIntent().getStringExtra("idTocken");
+            service = APIUtilsGameNews.getAPIService();
+            ReadRequest(token);
+
+
+            //newsList = new ArrayList<>();
 
             rv = findViewById(R.id.recycler);
 
             //agregando quemados para observar si el diseño es correcto
 
-                newsList.add(new News(null,"NOTICIAS LOL",null));
-                newsList.add(new News(null,"NOTICIAS DOTA",null));
-                newsList.add(new News(null,"NOTICIAS CSGO",null));
-                newsList.add(new News(null,"NOTICIAS LOL",null));
-                newsList.add(new News(null,"NOTICIAS DOTA",null));
-                newsList.add(new News(null,"NOTICIAS CSGO",null));
+                /*newsList.add(new News(1,null,"NOTICIAS LOL",null,null));
+                newsList.add(new News(2,null,"NOTICIAS DOTA",null,null));
+                newsList.add(new News(3,null,"NOTICIAS CSGO",null,null));
+                newsList.add(new News(4,null,"NOTICIAS LOL",null,null));
+                newsList.add(new News(5,null,"NOTICIAS DOTA",null,null));
+                newsList.add(new News(6,null,"NOTICIAS CSGO",null,null));*/
 
                 //6 Espacios para las cardview
                 GridLayoutManager gridLayoutManager = new GridLayoutManager(this,6);
@@ -90,10 +99,11 @@ public class MainActivity2 extends AppCompatActivity
                     }
                 });
 
-                //seteando recycler en adapter
+               //seteando recycler en adapter
                 rv.setLayoutManager(gridLayoutManager);
-                adapter = new RecyclerAdapter(this,newsList);
-                rv.setAdapter(adapter);
+                //adapter = new RecyclerAdapter(this,newsList);
+                //rv.setAdapter(adapter);
+
 
     }
 
@@ -168,4 +178,40 @@ public class MainActivity2 extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    public void ReadRequest(String x){
+
+                service.get(x).enqueue(new Callback<Request[]>() {
+                    @Override
+                    public void onResponse(Call<Request[]> call, Response<Request[]> response) {
+
+                        if (response.isSuccessful()){
+
+                            news=response.body();
+                            adapter=new RecyclerAdapter(news);
+                            rv.setAdapter(adapter);
+                            Log.d("Tag","Successful request reading of API");
+
+                        }
+                        else {
+
+                            int code=response.code();
+                            Log.d("Code... ",""+code);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Request[]> call, Throwable t) {
+
+                        Log.d("Tag","ERROR!! request ");
+                        Log.d("Code... ",t.toString());
+
+                    }
+                });
+
+    }
+
 }
+

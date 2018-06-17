@@ -11,6 +11,8 @@ import com.example.maris.gamenews.RoomDataBase.Interface.UserDao;
 import com.example.maris.gamenews.RoomDataBase.ClassOfDB.Converters;
 
 @Database(entities = {User.class}, version = 1)
+//Convierto el arreglo de String favoritos para que pueda guardarse
+//correctamente en la database
 @TypeConverters({Converters.class})
 public abstract class AppDataBase extends RoomDatabase {
 

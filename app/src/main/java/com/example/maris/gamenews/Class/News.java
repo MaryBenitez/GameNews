@@ -4,21 +4,29 @@ import java.util.ArrayList;
 
 public class News {
 
+    private int idnews;
     private String title;
-    private ArrayList<News> favorite;
     private String img;
+    private String desc;
+    private ArrayList<News> favorite;
 
-    public News(String img, String title, ArrayList<News> favorite) {
-        this.img = img;
+
+    //constructor
+    public News(int idnews, String title, String img, String desc, ArrayList<News> favorite) {
+        this.idnews = idnews;
         this.title = title;
+        this.img = img;
+        this.desc = desc;
         this.favorite = favorite;
     }
 
-    public String getImg() {
-        return img;
+
+    //Setters and Getters
+    public int getIdnews() {
+        return idnews;
     }
-    public void setImg(String img) {
-        this.img = img;
+    public void setIdnews(int idnews) {
+        this.idnews = idnews;
     }
 
     public String getTitle() {
@@ -28,11 +36,24 @@ public class News {
         this.title = title;
     }
 
+    public String getImg() {
+        return img;
+    }
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public ArrayList<News> getFavorite() {
         return favorite;
     }
     public void setFavorite(ArrayList<News> favorite) {
         this.favorite = favorite;
     }
-
 }

@@ -15,7 +15,7 @@ public class UserRepository {
     private UserDao mUserDao;
     private LiveData<List<User>> mAllUsers;
 
-    UserRepository(Application application){
+    public UserRepository(Application application){
 
         AppDataBase dataBase = AppDataBase.getDatabse(application);
         mUserDao = dataBase.userDao();
@@ -23,7 +23,7 @@ public class UserRepository {
 
     }
 
-    LiveData<List<User>> getAll(){
+    public LiveData<List<User>> getAll(){
         return mAllUsers;
     }
 

@@ -1,4 +1,4 @@
-package com.example.maris.gamenews.MainActivities.Data.Remoto;
+package com.example.maris.gamenews.MainActivities.Data.Remote;
 
 //Clase que tiene la URL de la API como variable estatica
 
